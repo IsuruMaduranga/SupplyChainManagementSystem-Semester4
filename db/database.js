@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 
-const db =  mysql.createPool({
+const pool =  mysql.createPool({
     connectionLimit : 10,
     host: "localhost",
     user: 'root',
@@ -8,5 +8,21 @@ const db =  mysql.createPool({
     database: 'SCMS'
 });
 
+function query(sql,data){
+    return new Promise((resolve,reject)=>{
+        pool.getConnection((err,con)=>{
+            if(err) reject('Database connection error');
 
-module.exports = {db};
+            con.query(sql,data,(err,result,fields)=>{
+                if(err){
+                    con.release();
+                    reject(err);
+                } 
+                con.release();
+                resolve(result);
+            });
+        });
+    });
+};
+
+module.exports = {query:query}
