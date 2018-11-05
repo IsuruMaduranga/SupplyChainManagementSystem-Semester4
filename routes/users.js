@@ -25,13 +25,13 @@ router.post('/',async (req,res)=>{
         if(err) return res.status(500).send('Database connection error');
 
         let sql = 'INSERT INTO users SET ?';
-        con.query(sql,data,(err,result,fields)=>{
+        con.query(sql,data,(err,result,fields)=>{ 
             if(err){
                 console.log(err);
                 res.status(400).send(err);
                 return;
             }
-            res.send(result);
+            res.send("account successfully created!");
         });
         
         con.release();
