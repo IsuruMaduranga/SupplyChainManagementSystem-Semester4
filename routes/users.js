@@ -1,5 +1,5 @@
 const express =  require('express');
-const {db} = require('../db/database');
+const db = require('../db/database');
 const bcrypt = require('bcrypt');
 
 const router = express.Router();
@@ -21,39 +21,33 @@ router.post('/',async (req,res)=>{
     const hash = await bcrypt.hash(data.hash_,salt);
     data.hash_ = hash;
 
-    db.getConnection((err,con)=>{
-        if(err) return res.status(500).send('Database connection error');
+    let sql = 'INSERT INTO users SET ?';
 
-        let sql = 'INSERT INTO users SET ?';
-        con.query(sql,data,(err,result,fields)=>{ 
-            if(err){
-                console.log(err);
-                res.status(400).send(err);
-                return;
-            }
-            res.send("account successfully created!");
-        });
-        
-        con.release();
-    });  
+    try{
+        let result = await db.query(sql,data);
+        res.send("account successfully created!");
+
+    }catch(err){
+        if(err.message==='Database connection error') return res.status(500).send(err);
+        return res.status(400).send(err);
+    }
+     
 });
 
 router.get('/',async (req,res)=>{
-    db.getConnection((err,con)=>{
-        if(err) return res.status(500).send('Database connection error');
 
-        let sql = 'SELECT userId,email,userType FROM users';
-        con.query(sql,(err,result,fields)=>{
-            if(err){
-                console.log(err);
-                res.status(400).send(err);
-                return;
-            }
-            res.send(result);
-        });   
-        
-        con.release();
-    });  
+    let sql = 'SELECT userId,email,userType FROM users';
+
+    try{
+        let result = await db.query(sql);
+        res.send(result);
+
+    }catch(err){
+        console.log(err)
+        if(err.message==='Database connection error') return res.status(500).send(err);
+        return res.status(400).send(err);
+    }
+
 });
 
 module.exports = router;
