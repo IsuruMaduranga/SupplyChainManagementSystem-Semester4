@@ -25,4 +25,4 @@ function query(sql,data){
     });
 };
 
-module.exports = {query:query}
+module.exports = {query:query,pool:pool};

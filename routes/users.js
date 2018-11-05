@@ -5,9 +5,8 @@ const bcrypt = require('bcrypt');
 const router = express.Router();
 
 /********************************
-sample valid schema for post ree json 
+sample valid schema for post req json 
     {
-        "userType":"admin",
         "email":"afjkkk@b.com",
         "hash_":"123546"
     }
@@ -15,6 +14,7 @@ sample valid schema for post ree json
 
 router.post('/',async (req,res)=>{
     let data = req.body;
+    data.userType = "admin";
 
     //hashing password
     const salt = await bcrypt.genSalt(10);

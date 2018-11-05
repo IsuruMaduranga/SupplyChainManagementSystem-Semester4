@@ -1,11 +1,36 @@
 const express =  require('express');
-const {db} = require('../db/database');
+const db = require('../db/database');
 
 const router = express.Router();
 
 /************************************* 
 sample valid schema for post req json
-{
+{   
+    "email":"afjkkk@b.com",
+    "hash_":"123546"
+}
+ ***************************************/
+
+router.post('/',async (req,res)=>{
+    let data = req.body;
+    data.userType = "customer";
+    let sql = 'INSERT INTO users SET ?';
+
+    try{
+        let result = await db.query(sql,data);
+        res.send("account successfully created!");
+
+    }catch(err){
+        console.log(err);
+        if(err.message==='Database connection error') return res.status(500).send(err);
+        return res.status(400).send(err);
+    }
+    
+});
+
+/************************************* 
+sample valid schema for post req json
+{  
 	"customerId":"2",
 	"customerType":"retailer",
 	"firstName":"isuruul",
@@ -17,44 +42,34 @@ sample valid schema for post req json
 }
  ***************************************/
 
-router.post('/',async (req,res)=>{
-    let data = req.body;
 
-    db.getConnection((err,con)=>{
-        if(err) return res.status(500).send('Database connection error');
-         
-        let sql = 'INSERT INTO customers SET ?';
-        con.query(sql,data,(err,result,fields)=>{
-            if(err){
-                console.log(err);
-                res.status(400).send(err);
-                return;
-            }
-            res.send(result);
-        });
-        
-        con.release();
-    });
+router.post('/account',async (req,res)=>{
+    let data = req.body;
+    let sql = 'INSERT INTO customers SET ?';
+
+    try{
+        let result = await db.query(sql,data);
+        res.send("account successfully created!");
+
+    }catch(err){
+        if(err.message==='Database connection error') return res.status(500).send(err);
+        return res.status(400).send(err);
+    }
     
 });
 
 router.get('/',async (req,res)=>{
-    db.getConnection((err,con)=>{
-        if(err) return res.status(500).send('Database connection error');
+    let sql = 'SELECT * FROM customers';
 
-        let sql = 'SELECT * FROM customers';
+    try{
+        let result = await db.query(sql);
+        res.send(result);
 
-        con.query(sql,(err,result,fields)=>{
-            if(err){
-                console.log(err);
-                res.status(400).send(err);
-                return;
-            }
-            res.send(result);
-        });
+    }catch(err){
+        if(err.message==='Database connection error') return res.status(500).send(err);
+        return res.status(400).send(err);
+    }
     
-        con.release();
-    }); 
 });
 
 
