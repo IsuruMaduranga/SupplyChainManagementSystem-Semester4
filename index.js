@@ -7,6 +7,7 @@ const morgan = require('morgan');
 const users = require('./routes/users');
 const customers = require('./routes/customers');
 const auth = require('./routes/auth');
+const admin = require('./routes/admin');
 
 const app =  express();
 
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use('/api/users',users);
 app.use('/api/customers',customers);
 app.use('/api/auth',auth);
+app.use('/api/admin',admin);
 
 
 app.listen(3000,()=>{
