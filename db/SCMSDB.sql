@@ -2,7 +2,6 @@
 
 CREATE TABLE users(
 	user_id INT(10) AUTO_INCREMENT PRIMARY KEY,
-	user_name VARCHAR(10) NOT NULL,
 	_type ENUM("admin","customer","employee"),
 	first_name VARCHAR(20) NOT NULL,
 	last_name VARCHAR(20) NOT NULL,
