@@ -2,6 +2,7 @@ const express =  require('express');
 const db = require('../db/database');
 const bcrypt = require('bcrypt');
 const router = express.Router();
+const uniqid = require('uniqid');
 
 /************************************* 
 sample valid schema for post req json
@@ -19,6 +20,9 @@ router.post('/',async (req,res)=>{
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(data._password,salt);
     data._password = hash;
+
+    //generate uniqid
+    data.user_id =  uniqid.process();
 
     let sql = 'INSERT INTO users SET ?';
 

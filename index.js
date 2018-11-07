@@ -8,6 +8,7 @@ const users = require('./routes/users');
 const customers = require('./routes/customers');
 const auth = require('./routes/auth');
 const admin = require('./routes/admin');
+const employee = require('./routes/employee');
 
 const app =  express();
 
@@ -20,6 +21,7 @@ app.use('/api/users',users);
 app.use('/api/customers',customers);
 app.use('/api/auth',auth);
 app.use('/api/admin',admin);
+app.use('/api/employee',employee);
 
 
 app.listen(3000,()=>{
