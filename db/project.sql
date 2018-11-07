@@ -9,8 +9,10 @@ CREATE TABLE users(
 	first_name VARCHAR(20) NOT NULL,
 	last_name VARCHAR(20) NOT NULL,
 	email VARCHAR(20) NOT NULL CHECK(email LIKE '%@%.%'),
+  add_no VARCHAR(5) NOT NULL,
 	street VARCHAR(20) NOT NULL,
-	city VARCHAR(20) NOT NULL,
+	city1 VARCHAR(20) NOT NULL,
+  city2 VARCHAR(20),
   zip INT(5) NOT NULL,
 	password_hash VARCHAR(50) NOT NULL,
 	token VARCHAR(20)
