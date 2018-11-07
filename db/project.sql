@@ -4,16 +4,15 @@ USE project;
 
 CREATE TABLE users(
 	user_id INT(10) AUTO_INCREMENT PRIMARY KEY,
-	user_name VARCHAR(10) NOT NULL,
+  email VARCHAR(20) NOT NULL CHECK(email LIKE '%@%.%'),
 	_type ENUM("admin","customer","employee"),
-	first_name VARCHAR(20) NOT NULL,
-	last_name VARCHAR(20) NOT NULL,
-	email VARCHAR(20) NOT NULL CHECK(email LIKE '%@%.%'),
-  add_no VARCHAR(5) NOT NULL,
-	street VARCHAR(20) NOT NULL,
-	city1 VARCHAR(20) NOT NULL,
+	first_name VARCHAR(20),
+	last_name VARCHAR(20),
+  add_no VARCHAR(5),
+	street VARCHAR(20),
+	city1 VARCHAR(20),
   city2 VARCHAR(20),
-  zip INT(5) NOT NULL,
+  zip INT(5),
 	password_hash VARCHAR(50) NOT NULL
 );
 

@@ -1,14 +1,21 @@
 
 
 CREATE TABLE users(
-  userId int(10) AUTO_INCREMENT,
-  email varchar(255) UNIQUE,
-  userType enum('customer', 'admin' ) NOT NULL,
-  hash_ varchar(255) NOT NULL,
-  PRIMARY KEY (userId)
-); 
+	user_id INT(10) AUTO_INCREMENT PRIMARY KEY,
+	user_name VARCHAR(10) NOT NULL,
+	_type ENUM("admin","customer","employee"),
+	first_name VARCHAR(20) NOT NULL,
+	last_name VARCHAR(20) NOT NULL,
+	email VARCHAR(20) NOT NULL CHECK(email LIKE '%@%.%'),
+  add_no VARCHAR(5) NOT NULL,
+	street VARCHAR(20) NOT NULL,
+	city1 VARCHAR(20) NOT NULL,
+  city2 VARCHAR(20),
+  zip INT(5) NOT NULL,
+	password_hash VARCHAR(50) NOT NULL
+);
 
-CREATE TABLE customers (
+/* CREATE TABLE customers (
   customerId int(10),
   customerType enum('wholesaler', 'retailer' , 'endcustomer') NOT NULL,
   firstName varchar(255) NOT NULL,
@@ -20,7 +27,4 @@ CREATE TABLE customers (
   PRIMARY KEY (customerId),
   FOREIGN KEY (customerId) REFERENCES users(userId)
 );
-
-
-
-
+ */
