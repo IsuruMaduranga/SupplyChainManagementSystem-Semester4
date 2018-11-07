@@ -8,8 +8,8 @@ CREATE TABLE users(
 	_type ENUM("admin","customer","employee"),
 	first_name VARCHAR(20) NOT NULL,
 	last_name VARCHAR(20) NOT NULL,
-	email VARCHAR(20) NOT NULL CHECK(email LIKE '%@%.%'),
-  add_no VARCHAR(5) NOT NULL,
+	email VARCHAR(50) NOT NULL,
+  add_no VARCHAR(15) NOT NULL,
 	street VARCHAR(20) NOT NULL,
 	city1 VARCHAR(20) NOT NULL,
   city2 VARCHAR(20),
@@ -35,10 +35,10 @@ CREATE TABLE employees(
 
 CREATE TABLE employee_work_data(
 	employee_id INT(10),
-	week_no DATE,
+	week_no INT(2),
 	workhours TIME,
 	FOREIGN KEY (employee_id) REFERENCES employees(employee_id),
-	PRIMARY KEY (employee_id, _date)
+	PRIMARY KEY (employee_id, week_no)
 );
 
 CREATE TABLE stores(
@@ -185,3 +185,24 @@ CREATE TABLE truck_trip_orders(
 	FOREIGN KEY (order_id) REFERENCES orders(order_id),
 	PRIMARY KEY (truck_schedule_id,order_id)
 );
+
+delimiter //
+CREATE TRIGGER trig_u_email_check BEFORE INSERT ON users
+	FOR EACH ROW
+		BEGIN
+			IF NEW.email NOT LIKE "%@%.%" THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Invalid Email';
+			END IF;
+		END
+//
+delimiter ;
+
+delimiter //
+CREATE TRIGGER trig_wk_hrs_check BEFORE INSERT ON employee_work_data
+	FOR EACH ROW
+		BEGIN
+			IF HOUR(NEW.workhours)>0 AND HOUR(NEW.workhours)<40
+				THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Invalid Email';
+			END IF;
+		END
+//
+delimiter ;
