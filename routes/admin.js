@@ -8,18 +8,18 @@ const router = express.Router();
 sample valid schema for post req json 
     {
         "email":"afjkkk@b.com",
-        "hash_":"123546"
+        "_password":"123546"
     }
  ******************************/
 
 router.post('/',async (req,res)=>{
     let data = req.body;
-    data.userType = "admin";
+    data._type = "admin";
 
     //hashing password
     const salt = await bcrypt.genSalt(10);
-    const hash = await bcrypt.hash(data.hash_,salt);
-    data.hash_ = hash;
+    const hash = await bcrypt.hash(data._password,salt);
+    data._password = hash;
 
     let sql = 'INSERT INTO users SET ?';
 
@@ -36,7 +36,7 @@ router.post('/',async (req,res)=>{
 
 router.get('/',async (req,res)=>{
 
-    let sql = 'SELECT userId,email FROM users WHERE userType="admin"';
+    let sql = 'SELECT user_id,email FROM users WHERE _type="admin"';
 
     try{
         let result = await db.query(sql);

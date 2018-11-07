@@ -10,7 +10,7 @@ const router = express.Router();
 sample valid schema for post ree json 
     {
         "email":"afjkkk@b.com",
-        "hash_":"123546"
+        "_password":"123546"
     }
  ******************************/
 
@@ -22,7 +22,7 @@ router.post('/',async (req,res)=>{
     try{
         let result = await db.query(sql,data);
 
-        const isValid = await bcrypt.compare(req.body.hash_,result[0].hash_);
+        const isValid = await bcrypt.compare(req.body._password,result[0]._password);
 
         if(!isValid) return res.status(400).send('Invalid email or password!');
 
