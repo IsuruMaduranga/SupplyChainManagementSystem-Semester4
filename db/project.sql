@@ -201,8 +201,11 @@ delimiter //
 CREATE TRIGGER trig_wk_hrs_check BEFORE INSERT ON employee_work_data
 	FOR EACH ROW
 		BEGIN
-			IF HOUR(NEW.workhours)>0 AND HOUR(NEW.workhours)<40
-				THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Invalid Email';
+			IF (TIME_TO_SEC(NEW.workhours)<0) THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Invalid Workhours';
+			ELSEIF NEW.employee_id IN (SELECT employee_id FROM employees WHERE _type = "driver") AND ((TIME_TO_SEC(NEW.workhours) / 60)>2400)
+				THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Driver Maximum Workhours Exceeded';
+			ELSEIF NEW.employee_id IN (SELECT employee_id FROM employees WHERE _type = "assistant") AND ((TIME_TO_SEC(NEW.workhours) / 60)>3600)
+				THEN SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Assistant Maximum Workhours Exceeded';
 			END IF;
 		END
 //
