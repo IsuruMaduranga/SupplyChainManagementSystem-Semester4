@@ -26,4 +26,59 @@ function query(sql,data){
     });
 };
 
-module.exports = {query:query,pool:pool};
+function trans_2(sql1,data1,sql2,data2){
+    return new Promise((resolve,reject)=>{
+        pool.getConnection((err,connection)=>{
+            if(err) return reject('Database connection error');
+        
+            connection.beginTransaction(err=>{
+                if(err){
+                    connection.rollback(()=>{
+                        connection.release();
+                    });
+                    reject('Error');
+                    return;
+                }
+    
+                connection.query(sql1,data1,(err,result)=>{
+                    if(err){
+                        connection.rollback(()=>{
+                            connection.release();
+                        });
+                        reject('Error');
+                        return;
+                    }
+    
+                    connection.query(sql2,data2,(err,result)=>{
+                        if(err){
+                            connection.rollback(()=>{
+                                connection.release();
+                            });
+                            reject('Error');
+                            return;
+                        }
+                        
+                        connection.commit((err)=>{
+                            if (err) {
+                                connection.rollback(function() {
+                                    connection.release();
+                                });
+                                reject('Error');
+                                return;
+                            }   
+                                connection.release();
+                        });
+        
+                        resolve(result);
+                    });
+        
+        
+                });
+    
+            });
+        });
+    });
+    
+}
+
+module.exports = {query:query,pool:pool,trans_2:trans_2};
