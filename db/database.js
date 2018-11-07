@@ -17,6 +17,7 @@ function query(sql,data){
                 if(err){
                     con.release();
                     reject(err);
+                    return;
                 } 
                 con.release();
                 resolve(result);

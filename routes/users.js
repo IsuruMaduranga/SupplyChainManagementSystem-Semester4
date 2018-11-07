@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/',async (req,res)=>{
 
-    let sql = 'SELECT userId,email,userType FROM users';
+    let sql = 'SELECT user_id,email,_type FROM users';
 
     try{
         let result = await db.query(sql);

@@ -2,9 +2,9 @@ DROP DATABASE IF EXISTS project;
 CREATE DATABASE project;
 USE project;
 
+
 CREATE TABLE users(
 	user_id INT(10) AUTO_INCREMENT PRIMARY KEY,
-	user_name VARCHAR(10) NOT NULL,
 	_type ENUM("admin","customer","employee"),
 	first_name VARCHAR(20) NOT NULL,
 	last_name VARCHAR(20) NOT NULL,
@@ -16,6 +16,7 @@ CREATE TABLE users(
   zip INT(5) NOT NULL,
 	password_hash VARCHAR(50) NOT NULL
 );
+
 
 CREATE TABLE phone(
 	user_id INT(10),

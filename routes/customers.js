@@ -1,19 +1,25 @@
 const express =  require('express');
 const db = require('../db/database');
-
+const bcrypt = require('bcrypt');
 const router = express.Router();
 
 /************************************* 
 sample valid schema for post req json
 {   
     "email":"afjkkk@b.com",
-    "hash_":"123546"
+    "_password":"123546"
 }
  ***************************************/
 
 router.post('/',async (req,res)=>{
     let data = req.body;
-    data.userType = "customer";
+    data._type = "customer";
+
+    //hashing password
+    const salt = await bcrypt.genSalt(10);
+    const hash = await bcrypt.hash(data._password,salt);
+    data._password = hash;
+
     let sql = 'INSERT INTO users SET ?';
 
     try{
@@ -31,13 +37,13 @@ router.post('/',async (req,res)=>{
 /************************************* 
 sample valid schema for post req json
 {  
-	"customerId":"2",
-	"customerType":"retailer",
-	"firstName":"isuruul",
-	"lastName":"ma",
+	"customer_id":"2",
+	"_type":"retailer",
+	"first_name":"isuruul",
+    "last_name":"ma",
+    "num":"1",
 	"city":"gampaha",
 	"street":"jsjs",
-	"num":"1",
 	"phone":"0778260669"
 }
  ***************************************/
