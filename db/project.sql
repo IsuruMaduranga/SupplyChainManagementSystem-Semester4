@@ -11,6 +11,7 @@ CREATE TABLE users(
 	email VARCHAR(20) NOT NULL CHECK(email LIKE '%@%.%'),
 	street VARCHAR(20) NOT NULL,
 	city VARCHAR(20) NOT NULL,
+  zip INT(5) NOT NULL,
 	password_hash VARCHAR(50) NOT NULL,
 	token VARCHAR(20)
 );
@@ -64,7 +65,6 @@ CREATE TABLE route_details(
 CREATE TABLE customers(
 	customer_id VARCHAR(5),
 	_type ENUM("retail","wholesale","customer"),
-	zip INT(10) NOT NULL,
 	PRIMARY KEY (customer_id),
 	FOREIGN KEY (customer_id) REFERENCES users(user_id)
 );
