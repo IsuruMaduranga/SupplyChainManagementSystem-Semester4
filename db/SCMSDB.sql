@@ -38,3 +38,8 @@ CREATE TABLE IF NOT EXISTS employees(
 	PRIMARY KEY (employee_id)
 );
 
+CREATE TABLE IF NOT EXISTS stores(
+	city ENUM('colombo', 'negombo' ,'galle','matara','jaffna','trinco'),
+	contact_no VARCHAR(10),
+  PRIMARY KEY (city)
+);
