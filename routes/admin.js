@@ -1,6 +1,7 @@
 const express =  require('express');
 const db = require('../db/database');
 const bcrypt = require('bcrypt');
+const uniqid = require('uniqid');
 
 const router = express.Router();
 
@@ -20,6 +21,9 @@ router.post('/',async (req,res)=>{
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(data._password,salt);
     data._password = hash;
+
+    //generate uniqid
+    data.user_id =  uniqid.process();
 
     let sql = 'INSERT INTO users SET ?';
 
