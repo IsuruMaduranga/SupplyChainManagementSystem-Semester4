@@ -27,7 +27,7 @@
 	);
 
 	CREATE TABLE IF NOT EXISTS employees(
-		employee_id INT(10) AUTO_INCREMENT,
+		employee_id INT(10),
 		_type ENUM('driver','assistant') NOT NULL,
 		salary INT(10) CHECK (salary>0),
 		FOREIGN KEY (employee_id) REFERENCES users(user_id) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -38,7 +38,7 @@
 		employee_id INT(10),
 		week_no INT(2),
 		workhours TIME NOT NULL,
-		FOREIGN KEY (employee_id) REFERENCES employees(employee_id) ON DELETE CASCADE ON UPDATE CASCADE,
+		FOREIGN KEY (employee_id) REFERENCES employees(employee_id) ON UPDATE CASCADE,
 		PRIMARY KEY (employee_id, week_no)
 	);
 
@@ -65,7 +65,7 @@
 	);
 
 	CREATE TABLE IF NOT EXISTS customers(
-		customer_id INT(10) AUTO_INCREMENT,
+		customer_id INT(10),
 		_type ENUM("retail","wholesale","customer") NOT NULL,
 		PRIMARY KEY (customer_id),
 		FOREIGN KEY (customer_id) REFERENCES users(user_id) ON DELETE CASCADE ON UPDATE CASCADE
@@ -101,8 +101,8 @@
 		delivery_date DATE NOT NULL,
 		_value FLOAT(12,2) NOT NULL,
 		status VARCHAR(5) NOT NULL,
-		FOREIGN KEY (customer) REFERENCES customers(customer_id) ON DELETE SET NULL ON UPDATE CASCADE,
-		FOREIGN KEY (route_id) REFERENCES routes(route_id) ON DELETE SET NULL ON UPDATE CASCADE
+		FOREIGN KEY (customer) REFERENCES customers(customer_id),
+		FOREIGN KEY (route_id) REFERENCES routes(route_id)
 	);
 
 	CREATE TABLE IF NOT EXISTS products_ordered(
@@ -110,7 +110,7 @@
 		product_id INT(10) NOT NULL,
 		qty INT(10) NOT NULL,
 		FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE CASCADE ON UPDATE CASCADE,
-		FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE ON UPDATE CASCADE,,
+		FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE ON UPDATE CASCADE,
 		PRIMARY KEY (order_id,product_id)
 	);
 
