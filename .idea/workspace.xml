@@ -26,10 +26,11 @@
     <session id="-254430223">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="2" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.34" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.open.time.5" value="1" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -45,12 +46,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="sql" value="909" />
+          <entry key="sql" value="1620" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="SQL" value="909" />
+          <entry key="SQL" value="1620" />
         </counts>
       </usages-collector>
     </session>
@@ -65,8 +66,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/db/project.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="212" lean-forward="true" selection-start-line="212" selection-end-line="212" />
+            <state relative-caret-position="85">
+              <caret line="112" column="76" selection-start-line="112" selection-start-column="76" selection-end-line="112" selection-end-column="76" />
             </state>
           </provider>
         </entry>
@@ -74,8 +75,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../project.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="212" />
+            <state relative-caret-position="-459">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -83,7 +84,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://C:/xampp/mysql/bin/project.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
+            <state relative-caret-position="3281">
               <caret line="193" column="35" selection-end-line="212" />
             </state>
           </provider>
@@ -101,11 +102,13 @@
       <find>id VARCHAR(5)</find>
       <find>NOT NULL</find>
       <find>employees</find>
+      <find>CREATE TABLE</find>
     </findStrings>
     <replaceStrings>
       <replace>id INT(10) AUTO INCREMENT</replace>
       <replace>id INT(10) AUTO_INCREMENT</replace>
       <replace>id INT(10)</replace>
+      <replace>CREATE TABLE IF NOT EXISTS</replace>
     </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
@@ -172,6 +175,15 @@
       </list>
     </option>
   </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
@@ -182,7 +194,7 @@
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Inspection" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="4" />
+      <window_info anchor="bottom" id="TODO" order="4" weight="0.3295082" />
       <window_info active="true" anchor="bottom" id="Database Console" order="5" visible="true" weight="0.3295082" />
       <window_info anchor="bottom" id="Database Changes" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -196,27 +208,27 @@
     <entry file="file://$PROJECT_DIR$/db/SCMSDB.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../project.sql">
+    <entry file="file://C:/xampp/mysql/bin/project.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="212" />
+        <state relative-caret-position="3281">
+          <caret line="193" column="35" selection-end-line="212" />
         </state>
       </provider>
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f28e5142-3c0f-4791-a93d-42436e669209/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://C:/xampp/mysql/bin/project.sql">
+    <entry file="file://$PROJECT_DIR$/../project.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="193" column="35" selection-end-line="212" />
+        <state relative-caret-position="-459">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/db/project.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="212" lean-forward="true" selection-start-line="212" selection-end-line="212" />
+        <state relative-caret-position="85">
+          <caret line="112" column="76" selection-start-line="112" selection-start-column="76" selection-end-line="112" selection-end-column="76" />
         </state>
       </provider>
     </entry>
