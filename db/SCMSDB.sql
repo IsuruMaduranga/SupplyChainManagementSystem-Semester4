@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS  users(
 
 CREATE TABLE IF NOT EXISTS customers (
   customer_id char(12),
-  _type enum('wholesaler', 'retailer' , 'endcustomer') NOT NULL,
+  cus_type enum('wholesaler', 'retailer' , 'endcustomer') NOT NULL,
   first_name varchar(255) NOT NULL,
   last_name varchar(255) NOT NULL,
   num varchar(255) NOT NULL,
@@ -42,4 +42,13 @@ CREATE TABLE IF NOT EXISTS stores(
 	city ENUM('colombo', 'negombo' ,'galle','matara','jaffna','trinco'),
 	contact_no VARCHAR(10),
   PRIMARY KEY (city)
+);
+
+CREATE TABLE IF NOT EXISTS routes (
+	route_id INT(10) AUTO_INCREMENT,
+	store ENUM('colombo', 'negombo' ,'galle','matara','jaffna','trinco') NOT NULL,
+  route_path varchar(255) NOT NULL,
+	max_time_hours FLOAT(4,2) NOT NULL,
+	FOREIGN KEY (store) REFERENCES stores(city),
+  PRIMARY KEY(route_id)
 );
