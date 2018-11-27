@@ -36,6 +36,7 @@ function trans_2(sql1,data1,sql2,data2){
                     connection.rollback(()=>{
                         connection.release();
                     });
+                    console.log(err);
                     reject('Error');
                     return;
                 }
@@ -45,6 +46,7 @@ function trans_2(sql1,data1,sql2,data2){
                         connection.rollback(()=>{
                             connection.release();
                         });
+                        console.log(err);
                         reject('Error');
                         return;
                     }
@@ -54,6 +56,7 @@ function trans_2(sql1,data1,sql2,data2){
                             connection.rollback(()=>{
                                 connection.release();
                             });
+                            console.log(err);
                             reject('Error');
                             return;
                         }
@@ -63,6 +66,7 @@ function trans_2(sql1,data1,sql2,data2){
                                 connection.rollback(function() {
                                     connection.release();
                                 });
+                                console.log(err);
                                 reject('Error');
                                 return;
                             }   
