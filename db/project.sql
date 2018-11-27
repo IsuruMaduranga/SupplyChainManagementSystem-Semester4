@@ -1,6 +1,6 @@
-	DROP DATABASE IF EXISTS project;
-	CREATE DATABASE IF NOT EXISTS project;
-	USE project;
+	DROP DATABASE IF EXISTS sms;
+	CREATE DATABASE IF NOT EXISTS sms;
+	USE sms;
 
 
 	CREATE TABLE IF NOT EXISTS users(
@@ -264,4 +264,17 @@
 			END
 	//
 	delimiter ;
+
+  DELIMITER //
+  CREATE FUNCTION get_store(id INT(10)) RETURNS VARCHAR(20)
+    BEGIN
+      DECLARE city VARCHAR(20);
+      SET city = (SELECT city FROM stores WHERE store_id = id);
+      RETURN city;
+    END//
+  DELIMITER ;
+
+  CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';
+  GRANT ALL PRIVILEGES ON * TO 'admin'@'localhost' IDENTIFIED BY 'admin';
+
 

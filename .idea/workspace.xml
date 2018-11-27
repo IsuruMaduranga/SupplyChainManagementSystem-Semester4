@@ -26,69 +26,74 @@
     <session id="-254430223">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.34" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.70" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="sql" value="9" />
+          <entry key="sql" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="SQL" value="8" />
+          <entry key="SQL" value="13" />
           <entry key="Scratch" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="sql" value="1694" />
+          <entry key="sql" value="2107" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="SQL" value="1694" />
+          <entry key="SQL" value="2107" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../project.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+            <state relative-caret-position="518">
+              <caret line="259" column="11" selection-start-line="259" selection-start-column="11" selection-end-line="259" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://C:/xampp/mysql/bin/project.sql">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/project.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="278" selection-start-line="4" selection-start-column="278" selection-end-line="4" selection-end-column="278" />
+            <state relative-caret-position="428">
+              <caret line="277" column="73" selection-start-line="277" selection-start-column="73" selection-end-line="277" selection-end-column="73" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://D:/project.sql">
+        <entry file="file://$USER_HOME$/Downloads/l7_ans.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="31" lean-forward="true" selection-end-line="267" />
+            <state relative-caret-position="392">
+              <caret line="34" selection-start-line="34" selection-end-line="34" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f28e5142-3c0f-4791-a93d-42436e669209/console.sql">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://C:/xampp/mysql/bin/ps.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="365">
+              <caret line="276" column="2" selection-start-line="276" selection-start-column="2" selection-end-line="277" selection-end-column="73" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -99,6 +104,7 @@
       <find>NOT NULL</find>
       <find>employees</find>
       <find>CREATE TABLE</find>
+      <find>stores</find>
     </findStrings>
     <replaceStrings>
       <replace>id INT(10) AUTO INCREMENT</replace>
@@ -110,9 +116,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/db/project.sql" />
         <option value="$PROJECT_DIR$/../project.sql" />
         <option value="C:/xampp/mysql/bin/project.sql" />
+        <option value="C:/xampp/mysql/bin/ps.sql" />
+        <option value="$PROJECT_DIR$/db/project.sql" />
       </list>
     </option>
   </component>
@@ -132,6 +139,7 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="true" />
     <property name="database.console.LAST_STATE" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -175,7 +183,7 @@
       <window_info anchor="bottom" id="Inspection" order="3" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="4" weight="0.3295082" />
       <window_info active="true" anchor="bottom" id="Database Console" order="5" visible="true" weight="0.3295082" />
-      <window_info anchor="bottom" id="Database Changes" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="6" weight="0.3295082" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="8" show_stripe_button="false" />
       <window_info anchor="right" content_ui="combo" id="Project" order="0" weight="0.24962178" />
@@ -187,34 +195,48 @@
     <entry file="file://$PROJECT_DIR$/db/SCMSDB.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://D:/project.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="14" column="31" selection-end-line="267" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f28e5142-3c0f-4791-a93d-42436e669209/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/project.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="50" lean-forward="true" selection-end-line="267" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/project.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="31" lean-forward="true" selection-end-line="267" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/xampp/mysql/bin/project.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="278" selection-start-line="4" selection-start-column="278" selection-end-line="4" selection-end-column="278" />
+        <state relative-caret-position="147">
+          <caret line="12" column="70" selection-start-line="12" selection-start-column="70" selection-end-line="12" selection-end-column="70" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../project.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+        <state relative-caret-position="518">
+          <caret line="259" column="11" selection-start-line="259" selection-start-column="11" selection-end-line="259" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Downloads/l7_ans.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/xampp/mysql/bin/ps.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="276" column="2" selection-start-line="276" selection-start-column="2" selection-end-line="277" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/project.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="277" column="73" selection-start-line="277" selection-start-column="73" selection-end-line="277" selection-end-column="73" />
         </state>
       </provider>
     </entry>

@@ -1022,7 +1022,6 @@
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="274" parent="253" name="_type">
@@ -1074,7 +1073,6 @@ week_no</ColNames>
       <RefTableName>employees</RefTableName>
       <RefColNames>employee_id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
-      <OnDelete>cascade</OnDelete>
     </foreign-key>
     <trigger id="282" parent="254" name="trig_wk_data_check_insert">
       <SourceTextLength>700</SourceTextLength>
@@ -1090,7 +1088,6 @@ week_no</ColNames>
       <Position>1</Position>
       <DataType>int(10)|0s</DataType>
       <NotNull>1</NotNull>
-      <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="285" parent="255" name="_type">
